@@ -15,7 +15,7 @@ namespace Brackets
                 {
                     class Program
                     {
-                        static void Main(string[] args)
+                        static void Main(string[] args)[
                         {
                             bool ok = CheckBrackets("")
 
@@ -54,7 +54,11 @@ namespace Brackets
                 else if (currentChar == ')')
                 {
                     if (validChar.Count() == 0)
+                    {
+                        int indexOfInvalidChar = text.IndexOf(')');
+                        Console.WriteLine("There's a non-corresponding bracket at position " + indexOfInvalidChar);
                         return false;
+                    }
                     char lastChar = validChar.Peek();
                     if (lastChar == '(')
                     validChar.Pop();
@@ -64,7 +68,11 @@ namespace Brackets
                 else if (currentChar == ']')
                 {
                     if (validChar.Count() == 0)
+                    {
+                        int indexOfInvalidChar = text.IndexOf(']');
+                        Console.WriteLine("There's a non-corresponding bracket at position " + indexOfInvalidChar);
                         return false;
+                    }
                     char lastChar = validChar.Peek();
                     if (lastChar == '[')
                         validChar.Pop();
@@ -74,7 +82,11 @@ namespace Brackets
                 else if (currentChar == '}')
                 {
                     if (validChar.Count() == 0)
+                    {
+                        int indexOfInvalidChar = text.IndexOf('}');
+                        Console.WriteLine("There's a non-corresponding bracket at position " + indexOfInvalidChar);
                         return false;
+                    }
                     char lastChar = validChar.Peek();
                     if (lastChar == '{')
                         validChar.Pop();
