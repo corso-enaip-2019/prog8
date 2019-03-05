@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C83E6F9C-01D8-4741-A633-455589BE2ABE}</ProjectGuid>
+    <ProjectGuid>{7CEEF745-9D4F-4EB0-9A03-5FD5CF375826}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleAppFirst</RootNamespace>
-    <AssemblyName>ConsoleAppFirst</AssemblyName>
+    <RootNamespace>Brackets</RootNamespace>
+    <AssemblyName>Brackets</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,9 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Liste.cs" />
-    <Compile Include="DataStructures.cs" />
-    <Compile Include="Iterations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

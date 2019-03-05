@@ -72,17 +72,9 @@ namespace ConsoleAppFirst
                 int longestSide = Math.Max(Math.Max(a, b), c);
                 int indexOfLongestSide = Array.IndexOf(richiestaNum, longestSide);
             }
-
-         
-            
-
-            
         }
 
-
-
         
-
         /// <summary>
         /// mostra all'utente il messaggio e prova a convertire l'input in un numero
         /// </summary>
