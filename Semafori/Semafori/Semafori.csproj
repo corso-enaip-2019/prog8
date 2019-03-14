@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C83E6F9C-01D8-4741-A633-455589BE2ABE}</ProjectGuid>
+    <ProjectGuid>{2BD93340-3136-483A-912B-5DBCB320EFF9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleAppFirst</RootNamespace>
-    <AssemblyName>ConsoleAppFirst</AssemblyName>
+    <RootNamespace>Semafori</RootNamespace>
+    <AssemblyName>Semafori</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classi.cs" />
-    <Compile Include="Liste.cs" />
-    <Compile Include="DataStructures.cs" />
-    <Compile Include="Iterations.cs" />
+    <Compile Include="Entities\Semaforo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

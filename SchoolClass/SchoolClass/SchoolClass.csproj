@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C83E6F9C-01D8-4741-A633-455589BE2ABE}</ProjectGuid>
+    <ProjectGuid>{707A9DFB-90E7-4860-8BD7-65599FE3797D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleAppFirst</RootNamespace>
-    <AssemblyName>ConsoleAppFirst</AssemblyName>
+    <RootNamespace>SchoolClass</RootNamespace>
+    <AssemblyName>SchoolClass</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,10 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classi.cs" />
-    <Compile Include="Liste.cs" />
-    <Compile Include="DataStructures.cs" />
-    <Compile Include="Iterations.cs" />
+    <Compile Include="Entities\Classroom.cs" />
+    <Compile Include="Entities\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
