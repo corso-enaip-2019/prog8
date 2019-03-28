@@ -11,5 +11,9 @@ namespace SimpleLogger
         void LogInfo(string message);
 
         void LogError(string message, Exception e);
+
+        void AddTarget(Targets.ILogTarget target);
+
+        void RemoveTarget(Targets.ILogTarget target);
     }
 }
