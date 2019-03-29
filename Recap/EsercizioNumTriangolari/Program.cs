@@ -27,11 +27,11 @@ namespace EsercizioNumPrimi
             {
                 if (j % 2 == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                 }
                 Console.WriteLine($"{j + 1}: {myPrimeNumbersList[j]}");
             }
