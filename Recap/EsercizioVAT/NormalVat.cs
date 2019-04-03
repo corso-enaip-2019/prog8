@@ -6,7 +6,7 @@ namespace EsercizioVAT
 {
     class NormalVat
     {
-        public int VatNum { get; set; }
+        public string VatNum { get; set; }
         public List<decimal> Bills;
         public List<decimal> Expenses;
     }
