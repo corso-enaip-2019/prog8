@@ -6,7 +6,11 @@ namespace Esercizio03_04_stringhe
 {
     class Program
     {
-        List<string> myStrings = new List<string>()
+        
+
+        static void Main(string[] args)
+        {
+            List<string> myStrings = new List<string>()
             {
                 "ambarabaciccicoccò",
                 "123456",
@@ -17,69 +21,124 @@ namespace Esercizio03_04_stringhe
                 "tre",
                 "bu"
             };
-
-        static void Main(string[] args)
-        {
-
-            Console.WriteLine("Your list of words is: ");
+            //print the list of input strings
             Console.WriteLine();
-            
+            Console.WriteLine("Your list of words is: ");
+            foreach (string s in myStrings)
+                Console.WriteLine(s);
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+
+            //print the list of short strings
+            IEnumerable<string> shortStrings = Filter(myStrings, new ShortStringFilter());
+            Console.WriteLine();
+            Console.WriteLine("These are the strings with less than 3 letters:");
+            foreach (string s in shortStrings)
+                Console.WriteLine(s);
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+
+            //print the list of strings convertible to numbers
+            IEnumerable<string> stringsToNumber = Filter(myStrings, new ConvertibleToNumberFilter());
+            Console.WriteLine();
+            Console.WriteLine("These are the strings that are convertible to numbers:");
+            foreach (string s in stringsToNumber)
+                Console.WriteLine(s);
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+
+            IEnumerable<string> stringsBeginningInA = Filter(myStrings, new StartsWithFilter('a'));
+            Console.WriteLine();
+            Console.WriteLine("These are the strings that begin in A:");
+            foreach (string s in stringsToNumber)
+                Console.WriteLine(s);
+            Console.WriteLine();
+            Console.WriteLine("-------------");
+
+
             Console.ReadLine();
         }
 
-        public void Reverse()
+        private static IEnumerable<T> Filter<T>(IEnumerable<T> input, IFilter<T> condition)
         {
-            List<string> myReversedStrings = new List<string>();
+            List<T> output = new List<T>();
 
-            for (int i = 0; i < myStrings.Count; i++)
-            {
-                string reversedWord = "";
-                for (int j = myStrings.Count - 1; j == 0; j--)
-                {
-                    reversedWord += myStrings[i][j];
-                }
-                myReversedStrings.Add(reversedWord);
-            }
-            Console.WriteLine(myReversedStrings);
+            foreach (T s in input)
+                if (condition.Filter(s))
+                    output.Add(s);
+
+            return output;
+        }
+        
+        interface IFilter<T>
+        {
+            bool Filter(T item);
         }
 
-        public void ListItemsLength()
+        class ShortStringFilter : IFilter<string>
         {
-            List<int> myItemsLength = new List<int>();
-            for (int i = 0; i < myStrings.Count; i++)
+            public bool Filter(string s)
             {
-                myItemsLength.Add(myStrings[i].Length);
-            }
-            Console.WriteLine(myItemsLength);
-        }
-
-        public void ShortItems()
-        {
-            List<string> myShortItems = new List<string>();
-            for (int i = 0; i < myStrings.Count; i++)
-            {
-                if (myStrings[i].Length < 3)
-                {
-                    myShortItems.Add(myStrings[i]);
-                }
+                return s.Length < 3;
             }
         }
 
-        public void ItemsBeginningInA()
+        class ConvertibleToNumberFilter : IFilter<string>
         {
-            List<string> myItemsInA = new List<string>();
-            for (int i = 0; i < myStrings.Count; i++)
+            public bool Filter(string s)
             {
-
+                return int.TryParse(s, out int _);
             }
         }
 
-        public void ItemsToInt()
+        class StartsWithFilter : IFilter<string>
         {
-            List<string> myItemsToInt = new List<string>();
-            for (int i = 0; i < myStrings.Count; i++)
+            private char _initialLower;
+            private char _initialUpper;
+
+            public StartsWithFilter(char initial)
             {
-                if(int.TryParse(myStrings[i]))
+                _initialLower = char.ToLower(initial);
+                _initialUpper = char.ToUpper(initial);
+            }
+
+            public bool Filter(string s)
+            {
+                return s.StartsWith(_initialLower) || s.StartsWith(_initialUpper);
+            }
+        }
+
+        private static IEnumerable<TOutput> Project<TInput, TOutput>(IEnumerable<TInput> input, IProject<TInput, TOutput> projection)
+        {
+            List<TOutput> output = new List<TOutput>();
+
+            foreach (TInput item in input)
+            {
+                TOutput projected = projection.Project(item);
+                output.Add(projected);
+            }
+            return output;
+        }
+
+        interface IProject<Tinput, TOutput>
+        {
+            TOutput Project(TInput item);
+        }
+
+        class LengthOfStringProjector : IProject<string, int>
+        {
+            public int Project(string item)
+            {
+                return item.Length;
+            }
+        }
+
+        class InvertedStringProjector : IProject<string, string>
+        {
+            public string Project(string item)
+            {
+                string result = "";
+
             }
         }
     }
