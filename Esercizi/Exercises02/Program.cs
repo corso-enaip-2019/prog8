@@ -12,7 +12,7 @@ namespace Exercises02
         static void Main(string[] args)
         {
             List<Smartphone> smartphones = CreateSmartphonesMock();
-            ChooseColourFilter filter = new ChooseColourFilter(Color.Red);
+            ChooseColourFilter filter = new ChooseColourFilter(Color.Black);
             Console.WriteLine("These are the Smartphones in red:");
             Console.WriteLine();
             List<Smartphone> byColour = Filter(smartphones, filter).ToList();
@@ -114,13 +114,18 @@ namespace Exercises02
         }
     }
 
-    //class ChooseMaxPriceFilter : IFilter<Smartphone>
-    //{
-        
+    class ChooseMaxPriceFilter : IFilter<Smartphone>
+    {
+       
 
-    //    public bool ChooseMaxPriceFilter(Smartphone item)
-    //    {
+        public ChooseMaxPriceFilter(Smartphone item)
+        {
             
-    //    }
-    //}
+        }
+
+        public bool Filter(Smartphone item)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
